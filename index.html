@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang='id'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='theme-color' content='#0c0c12'>
+    <title>WebLab Tek - Official Portal (Timeline: 2000)</title>
+    <meta name='description' content='Situs Resmi WebLab Tek - Jayakarta, Bhumiandra. Pengembang WebLab OS.'>
+    <meta name='keywords' content='WebLab Tek, WebLab OS, Jayakarta, Bhumiandra, Agung Jaya, Satria Pratama, Kesandra Lino Jati'>
+    <meta name='author' content='WebLab Tek Team'>
+    <style>
+        /* ------------------------------------------------------ */
+        /* CSS RESET & CORE STYLES                                */
+        /* ------------------------------------------------------ */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a24;
+            color: #e0e0e8;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+        
+        a {
+            color: #4da6ff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: #ff4d4d;
+            text-decoration: underline;
+        }
+        
+        /* ------------------------------------------------------ */
+        /* THEME COLORS & UTILITIES                               */
+        /* ------------------------------------------------------ */
+        :root {
+            --primary-bg: #0c0c12;
+            --secondary-bg: #1e1e2a;
+            --accent-blue: #0055ff;
+            --accent-red: #ff3333;
+            --terminal-green: #00ff66;
+            --border-color: #3a3a4f;
+            --text-muted: #a0a0b0;
+        }
+        
+        /* ------------------------------------------------------ */
+        /* LAYOUT CONTAINERS                                      */
+        /* ------------------------------------------------------ */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #00004d 0%, #000080 100%);
+            border-bottom: 4px solid var(--accent-red);
+            padding: 30px 0 20px 0;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        
+        .header-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .logo-box {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .logo-web { color: var(--accent-red); }
+        .logo-lab { color: #ffffff; }
+        .logo-tek { color: #4da6ff; font-style: italic; font-size: 1.8rem; margin-left: 5px; }
+        
+        .tagline {
+            font-family: 'Courier New', Courier, monospace;
+            color: #ffff00;
+            font-size: 1rem;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+        
+        /* Ticker Marquee */
+        .ticker-bar {
+            background-color: #000000;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--terminal-green);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            padding: 6px 0;
+            overflow: hidden;
+        }
+        
+        /* Main Wrapper using responsive layout */
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            gap: 25px;
+        }
+        
+        /* ------------------------------------------------------ */
+        /* NAVIGATION (SIDEBAR ON PC, TOP ON MOBILE)              */
+        /* ------------------------------------------------------ */
+        nav {
+            background-color: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        nav h3 {
+            color: #ffffff;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        nav ul li {
+            width: calc(50% - 5px);
+        }
+        
+        nav ul li a {
+            display: block;
+            background-color: rgba(255,255,255,0.05);
+            padding: 10px 12px;
+            border-left: 3px solid var(--accent-blue);
+            border-radius: 3px;
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        /* Counter Widget */
+        .counter-box {
+            margin-top: 15px;
+            background-color: #000000;
+            border: 1px solid #555;
+            padding: 8px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        .counter-box span {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: var(--terminal-green);
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+        
+        /* ------------------------------------------------------ */
+        /* CONTENT SECTIONS & CARDS                               */
+        /* ------------------------------------------------------ */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: var(--secondary-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .card h2 {
+            color: #ffffff;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h2::before {
+            content: '//';
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background-color: #000000;
+            border: 2px dashed var(--accent-red);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box h3 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        /* Grid for Founders */
+        .founders-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .founder-card {
+            background-color: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-blue);
+        }
+        
+        .founder-card h4 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        
+        .founder-role {
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Data Tables for Blueprint and Specifications */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        
+        th {
+            background-color: #0c0c12;
+            color: #ffffff;
+            padding: 12px;
+            border-bottom: 2px solid var(--border-color);
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #d0d0df;
+        }
+        
+        tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.02);
+        }
+        
+        /* Guestbook Styles */
+        .guestbook-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-top: 15px;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            background-color: rgba(0,0,0,0.15);
+            border-radius: 4px;
+        }
+        
+        .guestbook-item {
+            background-color: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 12px;
+            border-radius: 4px;
+        }
+        
+        .guestbook-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 4px;
+        }
+        
+        .guestbook-user {
+            font-weight: bold;
+            color: #4da6ff;
+        }
+        
+        /* Footer style */
+        footer {
+            background-color: #0c0c12;
+            border-top: 2px solid var(--border-color);
+            padding: 25px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+        
+        /* ------------------------------------------------------ */
+        /* MEDIA QUERIES FOR PC / LAPTOP RESPONSIVENESS           */
+        /* ------------------------------------------------------ */
+        @media (min-width: 768px) {
+            .header-grid {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+            
+            .main-wrapper {
+                flex-direction: row;
+            }
+            
+            nav {
+                width: 280px;
+                flex-shrink: 0;
+                position: sticky;
+                top: 20px;
+                height: fit-content;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                width: 100%;
+            }
+            
+            .content-area {
+                flex-grow: 1;
+            }
+            
+            .founders-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+            .founder-card {
+                width: calc(33.333% - 14px);
+            }
+        }
+
+        /* ------------------------------------------------------ */
+        /* ENHANCED RETRO-RESPONSIVE UI UPGRADES                  */
+        /* ------------------------------------------------------ */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top, rgba(77, 166, 255, 0.12), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(255, 51, 51, 0.10), transparent 24%),
+                linear-gradient(180deg, #10101a 0%, #0b0b12 45%, #060609 100%);
+        }
+
+        ::selection {
+            background: rgba(77, 166, 255, 0.35);
+            color: #ffffff;
+        }
+
+        code {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 0.95em;
+            white-space: nowrap;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        header {
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(255,255,255,0.08), transparent 25%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.10), transparent 18%);
+            pointer-events: none;
+        }
+
+        .header-grid,
+        .card,
+        nav,
+        .hero-panel,
+        .mini-card,
+        .theme-card,
+        .monitor-shell,
+        .status-shell,
+        .quick-links-shell {
+            backdrop-filter: blur(6px);
+        }
+
+        .logo-box {
+            line-height: 0.92;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+        }
+
+        .tagline {
+            max-width: 52ch;
+        }
+
+        .ticker-bar marquee {
+            letter-spacing: 0.25px;
+        }
+
+        .main-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        nav {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        nav:hover,
+        .card:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
+        }
+
+        nav ul li a {
+            transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+        }
+
+        nav ul li a:hover {
+            transform: translateX(2px);
+            border-left-color: #ffffff;
+        }
+
+        .hero-panel {
+            margin-top: 25px;
+            background:
+                linear-gradient(135deg, rgba(0, 0, 0, 0.55), rgba(12, 12, 18, 0.90)),
+                radial-gradient(circle at top right, rgba(0, 85, 255, 0.18), transparent 32%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.33);
+        }
+
+        .hero-top {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1fr;
+            align-items: start;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            line-height: 1.15;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .hero-copy {
+            color: #d6d6e4;
+            max-width: 70ch;
+            text-align: justify;
+        }
+
+        .feature-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .feature-pills span,
+        .note-chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 11px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: rgba(255, 255, 255, 0.06);
+            color: #f4f4ff;
+            font-size: 0.82rem;
+        }
+
+        .hero-side {
+            display: grid;
+            gap: 10px;
+        }
+
+        .hero-side .mini-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 14px 16px;
+        }
+
+        .hero-side strong {
+            display: block;
+            color: #ffffff;
+            margin-bottom: 3px;
+        }
+
+        .hero-side span {
+            color: #d0d0df;
+            font-size: 0.9rem;
+        }
+
+        .dashboard-grid,
+        .theme-grid,
+        .monitor-grid,
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .mini-card,
+        .theme-card,
+        .monitor-shell,
+        .status-shell,
+        .quick-links-shell {
+            background: rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 18px;
+        }
+
+        .mini-card h3,
+        .theme-card h3,
+        .monitor-shell h3,
+        .status-shell h3,
+        .quick-links-shell h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.02rem;
+        }
+
+        .mini-card p,
+        .theme-card p,
+        .monitor-shell p,
+        .status-shell p,
+        .quick-links-shell p {
+            color: #d0d0df;
+            font-size: 0.92rem;
+        }
+
+        .quick-action-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .quick-action-list a {
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 11px 12px;
+            text-align: center;
+            font-size: 0.88rem;
+        }
+
+        .quick-action-list a:hover {
+            background: rgba(77, 166, 255, 0.18);
+        }
+
+        .status-list,
+        .process-list,
+        .check-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .status-list li,
+        .process-list li,
+        .check-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #efeffa;
+        }
+
+        .status-list li span:last-child,
+        .process-list li span:last-child,
+        .check-list li span:last-child {
+            color: #b9b9cc;
+            text-align: right;
+        }
+
+        .theme-grid {
+            gap: 12px;
+        }
+
+        .theme-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-top: 3px solid var(--theme-accent, #4da6ff);
+            pointer-events: none;
+        }
+
+        .theme-swatch {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .theme-swatch span {
+            width: 18px;
+            height: 18px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+        }
+
+        .monitor-grid {
+            gap: 12px;
+        }
+
+        .monitor-shell pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.86rem;
+            color: #d6ffd8;
+            background: #0b1110;
+            border: 1px solid rgba(0, 255, 102, 0.16);
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 10px;
+        }
+
+        .section-heading {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .section-heading .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .progress-line {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .progress-line > span {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #00ff66, #4da6ff);
+        }
+
+        .inline-kv {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .inline-kv div {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+
+        .inline-kv strong {
+            color: #ffffff;
+        }
+
+        /* Improve the existing cards without changing the retro feel */
+        .card {
+            border-radius: 16px;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
+                var(--secondary-bg);
+        }
+
+        .card h2 {
+            font-size: clamp(1.25rem, 2vw, 1.6rem);
+        }
+
+        .highlight-box {
+            background:
+                linear-gradient(180deg, rgba(0,0,0,0.50), rgba(0,0,0,0.24));
+            border-color: rgba(255, 51, 51, 0.75);
+        }
+
+        .founder-card {
+            transition: transform 0.18s ease, border-color 0.18s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(77, 166, 255, 0.75);
+        }
+
+        .table-responsive {
+            border-radius: 14px;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        table {
+            min-width: 680px;
+        }
+
+        .guestbook-list {
+            max-height: 520px;
+            scrollbar-width: thin;
+        }
+
+        footer {
+            margin-top: 18px;
+        }
+
+        @media (min-width: 768px) {
+            .main-wrapper {
+                grid-template-columns: 290px minmax(0, 1fr);
+                align-items: start;
+            }
+
+            nav {
+                width: auto;
+                position: sticky;
+                top: 20px;
+            }
+
+            .hero-top {
+                grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+            }
+
+            .dashboard-grid,
+            .theme-grid,
+            .monitor-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .quick-links-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .inline-kv {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .quick-action-list {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: 24px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
+            header {
+                padding: 22px 0 18px;
+            }
+
+            .logo-box {
+                font-size: 2rem;
+            }
+
+            .logo-tek {
+                font-size: 1.4rem;
+            }
+
+            .tagline {
+                font-size: 0.92rem;
+            }
+
+            nav ul {
+                gap: 8px;
+            }
+
+            nav ul li a {
+                font-size: 0.85rem;
+                padding: 9px 10px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .hero-panel {
+                padding: 18px;
+                border-radius: 16px;
+            }
+
+            .quick-action-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            table {
+                font-size: 0.82rem;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class='container header-grid'>
+            <div>
+                <div class='logo-box'>
+                    <span class='logo-web'>WebLab</span><span class='logo-lab'>Tek</span><span class='logo-tek'>OS</span>
+                </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                <div class='tagline'>Pusat Inovasi Perangkat Lunak - Jayakarta, Republik Bhumiandra</div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+            <div style='color: #ffffff; font-family: monospace; font-size: 0.85rem; background: rgba(0,0,0,0.4); padding: 8px 12px; border-radius: 4px; border: 1px solid var(--border-color); margin-top: 10px;'>
+                Est. Januari 2000 | Indie Dev Studio
+            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+    </header>
+    
+    <div class='ticker-bar'>
+        <div class='container'>
+            <marquee scrollamount='5' behavior='scroll' direction='left'>
+                [PENGUMUMAN UTAMA] WebLab OS Versi 1.5 resmi menempatkan homepage sebagai pusat kontrol utama di Jayakarta Core Server // Selamat kepada Agung Jaya, Satria Pratama, dan Kesandra Lino Jati! Panel browser lebih ringan di HP, lebih lega di PC/Laptop, dan news strip update kini tampil di beranda // Dukung produk lokal Bhumiandra! //
+            </marquee>
+        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+    </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+
+    <div class='container'>
+        <section class='hero-panel'>
+            <div class='hero-top'>
+                <div>
+                    <div class='hero-kicker'>
+                        <span class='note-chip'>HOME CONTROL CENTER</span>
+                        <span class='note-chip'>RETRO 2000</span>
+                        <span class='note-chip'>HP + PC READY</span>
+                    </div>
+                    <h2 class='hero-title'>Layar utama WebLab Tek versi 1.5 kini jadi pusat kontrol resmi, lebih jelas dibuka di HP, dan tetap nyaman di PC/Laptop tanpa kehilangan nuansa retro tahun 2000.</h2>
+                    <p class='hero-copy'>
+                        Portal ini berfungsi sebagai pusat kontrol resmi WebLab Tek di Jayakarta, dengan jalur cepat ke browser, pesan, berkas, game, pengaturan, memo, dan panel berita update 1.5.
+                        Nuansanya sengaja dijaga retro, tapi tampilannya dirapikan supaya enak dibuka dari layar kecil maupun monitor desktop.
+                    </p>
+
+                    <div class='feature-pills'>
+                        <span>Browser</span>
+                        <span>Messages</span>
+                        <span>Files</span>
+                        <span>Games</span>
+                        <span>Settings</span>
+                        <span>Memo</span>
+                    </div>
+                </div>
+
+                <div class='hero-side'>
+                    <div class='mini-card'>
+                        <strong>Quick Status</strong>
+                        <span>Network aktif • baterai stabil • antarmuka ringan untuk tampilan HP.</span>
+                    </div>
+                    <div class='mini-card'>
+                        <strong>Design Note</strong>
+                        <span>Wallpaper dibuat lebih lembut, panel lebih tegas, dan navigasi lebih cepat dipakai.</span>
+                    </div>
+                    <div class='mini-card'>
+                        <strong>Build Focus</strong>
+                        <span>Home control, notes, wallpaper, monitor, dan lock screen dikemas agar mudah dipakai.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class='container'>
+        <div class='main-wrapper'>
+            <!-- NAVIGATION SIDEBAR -->
+            <nav>
+                <h3>Navigasi Portal</h3>
+                <ul>
+                    <li><a href='#profil'>Profil Perusahaan</a></li>
+                    <li><a href='#dashboard'>Home Control Center</a></li>
+                    <li><a href='#tim'>Tiga Pemuda Pendiri</a></li>
+                    <li><a href='#themes'>Display & Themes</a></li>
+                    <li><a href='#monitor'>System Monitor</a></li>
+                    <li><a href='#arsitektur'>Arsitektur WebLab OS</a></li>
+                    <li><a href='#directory'>Spesifikasi Berkas</a></li>
+                    <li><a href='#api'>Referensi WebLab API</a></li>
+                    <li><a href='#changelog'>Riwayat Pembaruan</a></li>
+                    <li><a href='#faq'>Pertanyaan Umum</a></li>
+                    <li><a href='#guestbook'>Buku Tamu Bhumiandra</a></li>
+                </ul>
+                
+                <div class='counter-box'>
+                    <div style='color: #aaa; font-size: 0.75rem; margin-bottom: 4px; text-transform: uppercase;'>Jumlah Pengunjung</div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                    <span>0041998</span>
+                </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                
+                <div style='margin-top: 20px; font-size: 0.75rem; color: var(--text-muted); text-align: center; line-height: 1.4; border-top: 1px dashed var(--border-color); padding-top: 10px;'>
+                    Situs ini dioptimalkan untuk performa responsif lintas perangkat (PC, Laptop, & Ponsel Genggam modern era baru).
+                </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+            </nav>
+            
+            <!-- CONTENT AREA STREAMS -->
+            <div class='content-area'>
+                <!-- SECTION: PROFIL PERUSAHAAN -->
+                <section id='profil' class='card'>
+
+                    <h2>Profil WebLab Tek</h2>
+                    <p style='margin-bottom: 15px; text-align: justify;'>
+                        WebLab Tek adalah studio pengembangan perangkat lunak independen yang berdiri pada awal tahun 2000 di Jayakarta, Bhumiandra. Arah geraknya jelas: membangun kemandirian digital melalui sistem ringan, cepat, dan mandiri, dengan inti kernel <strong>WL-Core.sys</strong> sebagai fondasi utama.
+                    </p>
+                    <p style='margin-bottom: 15px; text-align: justify;'>
+                        Dalam versi 1.5, WebLab Tek menegaskan satu pendekatan: homepage dijadikan <strong>Home Control Center</strong> agar pengguna bisa langsung masuk ke browser, pesan, berkas, pengaturan, memo, dan game tanpa langkah bertele-tele. Desainnya tetap retro, tetapi sudah ditata supaya nyaman di HP maupun PC/Laptop.
+                    </p>
+
+                    <div class='highlight-box'>
+                        <h3>Misi Utama WebLab Tek di Tahun 2000:</h3>
+                        <ol style='margin-left: 20px; color: #e0e0e8; font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px;'>
+                            <li><strong>Optimasi Ekstrim:</strong> Menjaga sistem tetap responsif pada ruang alokasi memori statis 8MB hingga 16MB RAM.</li>
+                            <li><strong>Infrastruktur Jaringan Mandiri:</strong> Mengembangkan interkoneksi lokal berbasis WGP (Wireless Gateway Portal) untuk akses data Bhumiandra.</li>
+                            <li><strong>Pusat Kontrol Homepage:</strong> Menyatukan browser, pesan, berkas, memo, dan game dalam satu layar utama yang cepat dipakai.</li>
+                        </ol>
+                    </div>
+
+                    <p style='text-align: justify;'>
+                        Proyek andalan utama yang sedang digarap intensif adalah <strong>WebLab OS 1.5</strong>, sebuah sistem operasi mandiri yang mengutamakan kecepatan interaksi, tata letak menu yang rasional, dan keserasian tampilan pada perangkat layar kecil maupun desktop.
+                    </p>
+
+                </section>
+
+                <!-- SECTION: HOME CONTROL CENTER -->
+                <section id='dashboard' class='card'>
+
+                    <div class='section-heading'>
+                        <h2>Home Control Center</h2>
+                        <div class='section-subtitle'>Bagian ini mengikuti tampilan video: cepat, jelas, dan langsung ke inti.</div>
+                    </div>
+
+                    <div class='dashboard-grid'>
+                        <div class='mini-card'>
+                            <h3>Quick Links</h3>
+                            <p>Tautan cepat disusun untuk pintas ke halaman paling sering dipakai.</p>
+                            <div class='quick-action-list'>
+                                <a href='#'>Online News Hub</a>
+                                <a href='#'>Corporate Profile</a>
+                                <a href='#'>Jayakarta Info</a>
+                                <a href='#'>Search Engine</a>
+                                <a href='#'>Portal Notes</a>
+                                <a href='#'>Back to Home</a>
+                            </div>
+                        </div>
+
+                        <div class='mini-card'>
+                            <h3>Quick Status</h3>
+                            <p>Ringkasan kondisi sistem saat portal dibuka.</p>
+                            <ul class='status-list'>
+                                <li><span>Network</span><span>Bhumiandra Mobile</span></li>
+                                <li><span>Signal</span><span>Sg:Str</span></li>
+                                <li><span>Battery</span><span>Bat:86%</span></li>
+                            </ul>
+                        </div>
+
+                        <div class='mini-card'>
+                            <h3>Today at a Glance</h3>
+                            <p>Panel ringkas untuk notifikasi dan catatan cepat.</p>
+                            <div class='inline-kv'>
+                                <div><strong>Dashboard</strong><span>aktif</span></div>
+                                <div><strong>Notes</strong><span>siap pakai</span></div>
+                                <div><strong>Wallpaper</strong><span>soft glow</span></div>
+                                <div><strong>Monitor</strong><span>online</span></div>
+                            </div>
+                        </div>
+
+                        <div class='mini-card'>
+                            <h3>Update 1.5 News</h3>
+                            <p>Berita terbaru yang ditampilkan di homepage agar pengguna langsung tahu apa yang berubah.</p>
+                            <ul class='check-list'>
+                                <li><span>Homepage</span><span>menjadi pusat kontrol utama</span></li>
+                                <li><span>Browser panel</span><span>lebih ringan di HP</span></li>
+                                <li><span>Desktop glow</span><span>lebih halus dan nyaman</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- SECTION: DISPLAY & THEMES -->
+                <section id='themes' class='card'>
+                    <div class='section-heading'>
+                        <h2>Display & Themes</h2>
+                        <div class='section-subtitle'>Pilihan warna dan nuansa yang terlihat di video, tetap ringan di HP.</div>
+                    </div>
+
+                    <div class='theme-grid'>
+                        <div class='theme-card' style='--theme-accent:#4da6ff;'>
+                            <h3>Classic Blue</h3>
+                            <p>Header navy, tombol tegas, dan kesan portal resmi yang paling aman dipakai.</p>
+                            <div class='theme-swatch'>
+                                <span style='background:#000080'></span><span style='background:#0055ff'></span><span style='background:#dfe9ff'></span>
+                            </div>
+                        </div>
+
+                        <div class='theme-card' style='--theme-accent:#00c48c;'>
+                            <h3>Mint Desk</h3>
+                            <p>Lebih sejuk untuk mata, cocok saat portal dibuka lama di layar kecil.</p>
+                            <div class='theme-swatch'>
+                                <span style='background:#0a6b57'></span><span style='background:#00c48c'></span><span style='background:#ddfff5'></span>
+                            </div>
+                        </div>
+
+                        <div class='theme-card' style='--theme-accent:#8a4b00;'>
+                            <h3>Amber Panel</h3>
+                            <p>Nuansa hangat dengan penekanan visual yang tetap retro dan rapi.</p>
+                            <div class='theme-swatch'>
+                                <span style='background:#8a4b00'></span><span style='background:#ffb347'></span><span style='background:#fff0db'></span>
+                            </div>
+                        </div>
+
+                        <div class='theme-card' style='--theme-accent:#6b4cff;'>
+                            <h3>Violet Glass</h3>
+                            <p>Versi alternatif dengan aksen lembut untuk tampilan yang sedikit lebih modern.</p>
+                            <div class='theme-swatch'>
+                                <span style='background:#5a3ea1'></span><span style='background:#8e7dff'></span><span style='background:#efe9ff'></span>
+                            </div>
+                        </div>
+
+                        <div class='theme-card' style='--theme-accent:#f1f1f1;'>
+                            <h3>Clean Paper</h3>
+                            <p>Tampilan terang yang simpel, bersih, dan enak untuk teks panjang.</p>
+                            <div class='theme-swatch'>
+                                <span style='background:#f4f4f4'></span><span style='background:#d5d5d5'></span><span style='background:#8f8f8f'></span>
+                            </div>
+                        </div>
+
+                        <div class='theme-card' style='--theme-accent:#111111;'>
+                            <h3>Midnight Pulse</h3>
+                            <p>Mode gelap dengan aksen neon tipis untuk kesan sistem yang lebih dalam.</p>
+                            <div class='theme-swatch'>
+                                <span style='background:#0c0c12'></span><span style='background:#00ff66'></span><span style='background:#4da6ff'></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION: SYSTEM MONITOR -->
+                <section id='monitor' class='card'>
+                    <div class='section-heading'>
+                        <h2>System Monitor & Control Panel</h2>
+                        <div class='section-subtitle'>Sesuai video, panel ini menggabungkan pengaturan, monitor, dan profil pengguna.</div>
+                    </div>
+
+                    <div class='monitor-grid'>
+                        <div class='monitor-shell'>
+                            <h3>Control Panel</h3>
+                            <ul class='check-list'>
+                                <li><span>Display & Themes</span><span>Symbian 2000</span></li>
+                                <li><span>Sound Management</span><span>Keypad & beep aktif</span></li>
+                                <li><span>Network Simulation</span><span>Bhumiandra Mobile</span></li>
+                                <li><span>User Profile Master</span><span>Main Administrator</span></li>
+                            </ul>
+                        </div>
+
+                        <div class='monitor-shell'>
+                            <h3>Active Processes</h3>
+                            <ul class='process-list'>
+                                <li><span>Home Screen</span><span>active</span></li>
+                                <li><span>web-browser</span><span>active</span></li>
+                                <li><span>dashboard</span><span>active</span></li>
+                                <li><span>notes</span><span>active</span></li>
+                                <li><span>wallpaper</span><span>active</span></li>
+                                <li><span>monitor</span><span>active</span></li>
+                            </ul>
+                        </div>
+
+                        <div class='monitor-shell'>
+                            <h3>System Log</h3>
+                            <div class='progress-line' aria-hidden='true'><span style='width: 86%;'></span></div>
+                            <pre>SYS [16:15:14] Application opened: monitor
+SYS [16:15:14] Returned to desktop
+SYS [16:15:16] Home environment stable
+STATUS: Portal responsive on mobile and desktop</pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECTION: TIGA PEMUDA PENDIRI -->
+
+                <section id='tim' class='card'>
+
+                    <h2>Tiga Pemuda di Balik Layar</h2>
+                    <p style='margin-bottom: 15px;'>
+                        WebLab Tek didirikan, dikelola, dan dihidupi sepenuhnya oleh tiga talenta muda Jayakarta yang membagi tugas secara presisi untuk mewujudkan sistem komputasi masa depan:
+                    </p>
+
+                    <div class='founders-grid'>
+                        <div class='founder-card'>
+                            <h4>Agung Jaya</h4>
+                            <div class='founder-role'>Lead Architect & Project Manager</div>
+                            <p style='font-size: 0.85rem; text-align: justify;'>
+                                Bertindak sebagai dirigen utama tim. Agung menjadi konseptor arah gerak WebLab Tek, menangani struktur proyek, dokumentasi teknis, dan logika dasar sistem sebelum diimplementasikan ke dalam kode.
+                            </p>
+                        </div>
+
+                        <div class='founder-card'>
+                            <h4>Satria Pratama</h4>
+                            <div class='founder-role'>Systems Engineer & Kernel Dev</div>
+                            <p style='font-size: 0.85rem; text-align: justify;'>
+                                Sang pawang perangkat keras. Satria menguasai bahasa tingkat rendah seperti Assembly dan C, membangun serta mengamankan <code>WL-Core.sys</code>, dan memastikan pemetaan memori statis 16MB berjalan tanpa konflik.
+                            </p>
+                        </div>
+
+                        <div class='founder-card'>
+                            <h4>Kesandra Lino Jati</h4>
+                            <div class='founder-role'>UI & Core Application Developer</div>
+                            <p style='font-size: 0.85rem; text-align: justify;'>
+                                Seniman visual dan logika aplikasi. Kesandra memimpin perancangan antarmuka <em>Home Control Center</em>, sistem sub-panel grid, penataan font, dan pengembangan WebLab Browser 1.5 serta game Snake legendaris.
+                            </p>
+                        </div>
+                    </div>
+
+                </section>
+                <!-- SECTION: ARSITEKTUR WEBLAB OS -->
+                <section id='arsitektur' class='card'>
+
+                    <h2>Arsitektur Utama WebLab OS 1.5</h2>
+                    <p style='margin-bottom: 15px; text-align: justify;'>
+                        WebLab OS mengadopsi rancangan <strong>Microkernel Monolitik Terisolasi</strong>. Sistem ini dibuat ringan untuk lingkungan Bhumiandra dan tetap responsif ketika dibuka dari HP maupun PC/Laptop.
+                    </p>
+
+                    <h3 style='color: #ffffff; font-size: 1.1rem; margin: 15px 0 10px 0;'>Spesifikasi Kebutuhan Sistem Minimum:</h3>
+                    <div class='table-responsive'>
+                        <table>
+                            <thead>
+                               <tr>
+                                   <th>Komponen Sistem</th>
+                                   <th>Kebutuhan Minimum</th>
+                                   <th>Rekomendasi Optimal</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                   <td>Prosesor (CPU)</td>
+                                   <td>RISC 32-Bit @ 33 MHz</td>
+                                   <td>RISC 32-Bit @ 66 MHz atau lebih tinggi</td>
+                               </tr>
+                               <tr>
+                                   <td>Memori Terpasang (RAM)</td>
+                                   <td>8 MB Static RAM</td>
+                                   <td>16 MB Static Memory Detected</td>
+                               </tr>
+                               <tr>
+                                   <td>Ruang Penyimpanan (ROM)</td>
+                                   <td>4 MB Flash Memory Space</td>
+                                   <td>8 MB Ruang Sektor Bebas</td>
+                               </tr>
+                               <tr>
+                                   <td>Resolusi Layar</td>
+                                   <td>128 x 160 Piksel</td>
+                                   <td>240 x 320 Piksel atau lebih</td>
+                               </tr>
+                               <tr>
+                                   <td>Modem Subsistem</td>
+                                   <td>9.6 Kbps Dial-up WGP Link</td>
+                                   <td>56 Kbps Dedicated Bhumiandra Portal Access</td>
+                               </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style='margin-top: 15px; text-align: justify; color: #cfcfe0;'>
+                        Mode tampilannya sudah dirapikan agar otomatis menyesuaikan layar kecil HP dan layar lebar PC/Laptop tanpa memaksa pengguna menggeser panel terus-menerus.
+                    </p>
+
+                </section>
+                <!-- SECTION: SPESIFIKASI BERKAS & DIREKTORI -->
+                <section id='directory' class='card'>
+                    <h2>Spesifikasi Berkas Direktori Root WebLab OS</h2>
+                    <p style='margin-bottom: 15px;'>Berikut adalah struktur lengkap pemetaan sektor memori penyimpanan pada <code>WL-Core.sys</code> versi 1.4:</p>
+                    <div class='table-responsive'>
+                        <table>
+                            <thead>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <th>Alamat Path Direktori</th>
+                                   <th>Tipe Berkas</th>
+                                   <th>Ukuran Alokasi</th>
+                                   <th>Fungsi dan Deskripsi Logis</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/System/Kernel/wl-core.sys</code></td>
+                                   <td><span style='color: #ff9999;'>System Binary</span></td>
+                                   <td><span style='color: #99ff99;'>512 KB</span></td>
+                                   <td>Inti mikrokernel sistem operasi utama. Mengatur interupsi hardware.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/System/Kernel/mem-map.cfg</code></td>
+                                   <td><span style='color: #ff9999;'>Configuration</span></td>
+                                   <td><span style='color: #99ff99;'>16 KB</span></td>
+                                   <td>Peta statis pengalokasian alamat memori RAM 16MB agar terhindar dari crash.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/System/Drivers/display.drv</code></td>
+                                   <td><span style='color: #ff9999;'>Driver Binary</span></td>
+                                   <td><span style='color: #99ff99;'>64 KB</span></td>
+                                   <td>Pengendali render grafis panel bertekstur garis abu-abu.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/System/Drivers/keypad.drv</code></td>
+                                   <td><span style='color: #ff9999;'>Driver Binary</span></td>
+                                   <td><span style='color: #99ff99;'>32 KB</span></td>
+                                   <td>Driver penangkap input tombol mekanis kontrol navigasi.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/System/Drivers/sound.drv</code></td>
+                                   <td><span style='color: #ff9999;'>Driver Binary</span></td>
+                                   <td><span style='color: #99ff99;'>48 KB</span></td>
+                                   <td>Modul audio penghasil efek suara gelombang biner tunggal (beep).</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/System/Drivers/network.drv</code></td>
+                                   <td><span style='color: #ff9999;'>Driver Binary</span></td>
+                                   <td><span style='color: #99ff99;'>128 KB</span></td>
+                                   <td>Protokol penghubung gateway wireless Bhumiandra lokal network.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/System/Config/boot.ini</code></td>
+                                   <td><span style='color: #ff9999;'>Text Config</span></td>
+                                   <td><span style='color: #99ff99;'>4 KB</span></td>
+                                   <td>Konfigurasi urutan booting teks awal saat perangkat dinyalakan.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/System/Config/sys-theme.pal</code></td>
+                                   <td><span style='color: #ff9999;'>Palette Data</span></td>
+                                   <td><span style='color: #99ff99;'>8 KB</span></td>
+                                   <td>Skema palet warna UI panel (Abu-abu, Navy Blue, Hijau Terminal).</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Apps/Core/home-ctrl.app</code></td>
+                                   <td><span style='color: #ff9999;'>Application</span></td>
+                                   <td><span style='color: #99ff99;'>256 KB</span></td>
+                                   <td>Antarmuka Home Control Center utama yang berisi 6 menu navigasi.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Apps/Core/browser.app</code></td>
+                                   <td><span style='color: #ff9999;'>Application</span></td>
+                                   <td><span style='color: #99ff99;'>384 KB</span></td>
+                                   <td>WebLab Browser versi 1.5 terintegrasi mesin pencari lokal .wgp.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Apps/Core/messages.app</code></td>
+                                   <td><span style='color: #ff9999;'>Application</span></td>
+                                   <td><span style='color: #99ff99;'>128 KB</span></td>
+                                   <td>Manajer perpesanan teks pendek (SMS & WGP Messaging System).</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Apps/Core/file-mgr.app</code></td>
+                                   <td><span style='color: #ff9999;'>Application</span></td>
+                                   <td><span style='color: #99ff99;'>160 KB</span></td>
+                                   <td>Aplikasi penjelajah hierarki folder dan manipulasi berkas biner.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Apps/Core/settings.app</code></td>
+                                   <td><span style='color: #ff9999;'>Application</span></td>
+                                   <td><span style='color: #99ff99;'>96 KB</span></td>
+                                   <td>Pusat pengaturan kecerahan, volume, waktu, dan alokasi memori.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Apps/Core/memo.app</code></td>
+                                   <td><span style='color: #ff9999;'>Application</span></td>
+                                   <td><span style='color: #99ff99;'>80 KB</span></td>
+                                   <td>Penyunting teks catatan pendek berbasis static char array.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Apps/Games/snake.app</code></td>
+                                   <td><span style='color: #ff9999;'>Game Binary</span></td>
+                                   <td><span style='color: #99ff99;'>112 KB</span></td>
+                                   <td>Permainan klasik ular legendaris buatan Kesandra Lino Jati.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Apps/Games/puzzle.app</code></td>
+                                   <td><span style='color: #ff9999;'>Game Binary</span></td>
+                                   <td><span style='color: #99ff99;'>74 KB</span></td>
+                                   <td>Permainan asah otak 15-Puzzle dengan akselerasi rendering cepat.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/User/Documents/readme.txt</code></td>
+                                   <td><span style='color: #ff9999;'>Text Document</span></td>
+                                   <td><span style='color: #99ff99;'>12 KB</span></td>
+                                   <td>Panduan instalasi awal dan sambutan selamat datang dari tim WebLab.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/User/Documents/todo.txt</code></td>
+                                   <td><span style='color: #ff9999;'>Text Document</span></td>
+                                   <td><span style='color: #99ff99;'>2 KB</span></td>
+                                   <td>Catatan kerja Agung: Jangan lupa kumpulkan source code kernel nanti malam!</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/User/Cache/browser.tmp</code></td>
+                                   <td><span style='color: #ff9999;'>Temporary Data</span></td>
+                                   <td><span style='color: #99ff99;'>1024 KB</span></td>
+                                   <td>Tempat penampungan data cache penjelajahan halaman web lokal Bhumiandra.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/User/Cache/dns-map.dat</code></td>
+                                   <td><span style='color: #ff9999;'>Data Registry</span></td>
+                                   <td><span style='color: #99ff99;'>32 KB</span></td>
+                                   <td>Daftar pemetaan IP lokal untuk domain nirkabel berakhiran .wgp.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/User/Saved/snake.dat</code></td>
+                                   <td><span style='color: #ff9999;'>Save State</span></td>
+                                   <td><span style='color: #99ff99;'>2 KB</span></td>
+                                   <td>Penyimpan skor tertinggi dan konfigurasi kecepatan ular pada game Snake.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/User/Saved/puzzle.dat</code></td>
+                                   <td><span style='color: #ff9999;'>Save State</span></td>
+                                   <td><span style='color: #99ff99;'>2 KB</span></td>
+                                   <td>Catatan waktu terbaik penyelesaian teka-teki ubin 15-Puzzle.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Library/Fonts/sys-pixel.fon</code></td>
+                                   <td><span style='color: #ff9999;'>Font File</span></td>
+                                   <td><span style='color: #99ff99;'>45 KB</span></td>
+                                   <td>Font bitmap piksel berukuran khusus untuk keterbacaan layar kecil.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Library/Sounds/boot.wav</code></td>
+                                   <td><span style='color: #ff9999;'>Audio Wave</span></td>
+                                   <td><span style='color: #99ff99;'>110 KB</span></td>
+                                   <td>Suara sambutan ikonik saat WebLab OS pertama kali dimuat.</td>
+                               </tr>
+                               <tr>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                                   <td><code>/Library/Sounds/alert.wav</code></td>
+                                   <td><span style='color: #ff9999;'>Audio Wave</span></td>
+                                   <td><span style='color: #99ff99;'>35 KB</span></td>
+                                   <td>Suara peringatan sistem jika memori mengalami batas maksimal alokasi.</td>
+                               </tr>
+                            </tbody>
+                        </table>
+                    </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                </section>
+                <!-- SECTION: REFERENSI WEBLAB API -->
+                <section id='api' class='card'>
+
+                    <h2>Dokumentasi Referensi WebLab API (Tahun 2000)</h2>
+                    <p style='margin-bottom: 15px; text-align: justify;'>
+                        Untuk memudahkan programmer muda lainnya di Bhumiandra membangun aplikasi di atas WebLab OS 1.5, Satria Pratama dan Kesandra telah mendokumentasikan fungsi API internal berikut ini. Gunakan pustaka header <code>#include &lt;weblab-core.h&gt;</code>.
+                    </p>
+                    <div class='table-responsive'>
+                        <table>
+                            <thead>
+                               <tr>
+                                   <th>Nama Fungsi API (C / C++)</th>
+                                   <th>Parameter Masukan</th>
+                                   <th>Tipe Kembalian</th>
+                                   <th>Keterangan Operasional</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                   <td><code>WL_Sys_Init()</code></td>
+                                   <td><small>void</small></td>
+                                   <td><span style='color: #99ffff;'>int</span></td>
+                                   <td>Menginisialisasi subsistem kernel dan mendeteksi ketersediaan Static RAM.</td>
+                               </tr>
+                               <tr>
+                                   <td><code>WL_Sys_GetFreeMem()</code></td>
+                                   <td><small>void</small></td>
+                                   <td><span style='color: #99ffff;'>uint32_t</span></td>
+                                   <td>Mengembalikan sisa byte memori statis yang belum terpakai aplikasi.</td>
+                               </tr>
+                               <tr>
+                                   <td><code>WL_Sys_Allocate(uint32_t size)</code></td>
+                                   <td><small>size_t</small></td>
+                                   <td><span style='color: #99ffff;'>void*</span></td>
+                                   <td>Memesan blok memori pada sektor user cache secara aman.</td>
+                               </tr>
+                               <tr>
+                                   <td><code>WL_Sys_Free(void* ptr)</code></td>
+                                   <td><small>void*</small></td>
+                                   <td><span style='color: #99ffff;'>int</span></td>
+                                   <td>Membebaskan kembali alokasi memori agar tidak terjadi memory leak.</td>
+                               </tr>
+                               <tr>
+                                   <td><code>WL_Scr_Clear()</code></td>
+                                   <td><small>void</small></td>
+                                   <td><span style='color: #99ffff;'>void</span></td>
+                                   <td>Membersihkan seluruh layar panel grafis kembali ke palet latar dasar.</td>
+                               </tr>
+                               <tr>
+                                   <td><code>WL_Scr_DrawPixel(int x, int y, uint16_t color)</code></td>
+                                   <td><small>int, int, uint16_t</small></td>
+                                   <td><span style='color: #99ffff;'>void</span></td>
+                                   <td>Menggambar satu titik piksel pada koordinat X dan Y tertentu.</td>
+                               </tr>
+                               <tr>
+                                   <td><code>WL_Scr_DrawLine(int x1, int y1, int x2, int y2)</code></td>
+                                   <td><small>int, int, int, int</small></td>
+                                   <td><span style='color: #99ffff;'>void</span></td>
+                                   <td>Menarik garis lurus antartitik dengan algoritma rendering cepat.</td>
+                               </tr>
+                               <tr>
+                                   <td><code>WL_Scr_DrawRect(int x, int y, int w, int h)</code></td>
+                                   <td><small>int, int, int, int</small></td>
+                                   <td><span style='color: #99ffff;'>void</span></td>
+                                   <td>Membuat kotak panel menu bertekstur grid sesuai koordinat.</td>
+                               </tr>
+                               <tr>
+                                   <td><code>WL_Scr_PutString(int x, int y, char* str)</code></td>
+                                   <td><small>int, int, char*</small></td>
+                                   <td><span style='color: #99ffff;'>void</span></td>
+                                   <td>Mencetak teks string pada layar menggunakan font pixel bawaan.</td>
+                               </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+                <!-- SECTION: RIWAYAT PEMBARUAN -->
+                <section id='changelog' class='card'>
+
+                    <h2>Riwayat Kompilasi WebLab OS (Update 1.5)</h2>
+                    <p style='margin-bottom: 15px;'>Dokumentasi catatan harian perbaikan bug oleh Agung, Satria, dan Kesandra:</p>
+                    <div style='margin-bottom: 15px; padding: 12px; border: 1px dashed #ffcc00; background: rgba(255,204,0,0.08); color: #e8e8f2;'>
+                        Update 1.5 menempatkan homepage sebagai pusat kontrol utama, merapikan browser untuk layar HP, dan menambahkan news strip update di beranda.
+                    </div>
+                    <div class='table-responsive'>
+                        <table>
+                            <thead>
+                               <tr>
+                                   <th>Versi Build</th>
+                                   <th>Tanggal Rilis</th>
+                                   <th>Daftar Perubahan Teknis / Log Perbaikan</th>
+                                   <th>Eksekutor</th>
+                               </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                   <td><strong>v1.5.0-Homepage Refresh</strong></td>
+                                   <td><small>Update 1.5</small></td>
+                                   <td>Homepage dijadikan pusat kontrol utama, panel browser dibuat lebih nyaman di HP, dan berita update dipindah ke beranda.</td>
+                                   <td><span style='color: #ffcc00;'>Tim Dev</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.4.2-Beta</strong></td>
+                                   <td><small>18 Juni 2000</small></td>
+                                   <td>Optimasi fungsi memori internal untuk menekan angka kebocoran data di aplikasi Memo.</td>
+                                   <td><span style='color: #ffcc00;'>Satria P.</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.4.0-Beta</strong></td>
+                                   <td><small>02 Juni 2000</small></td>
+                                   <td>Perombakan total desain GUI Home Control Center dengan layout panel abu-abu bergaris.</td>
+                                   <td><span style='color: #ffcc00;'>Kesandra L. J.</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.3.5-Alpha</strong></td>
+                                   <td><small>21 Mei 2000</small></td>
+                                   <td>Implementasi mesin pencari internal terintegrasi .wgp untuk WebLab Browser.</td>
+                                   <td><span style='color: #ffcc00;'>Agung Jaya</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.3.0-Alpha</strong></td>
+                                   <td><small>09 Mei 2000</small></td>
+                                   <td>Penambahan game legendaris Snake Vintage dengan akselerasi render berbasis interupsi waktu.</td>
+                                   <td><span style='color: #ffcc00;'>Kesandra L. J.</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.2.8-Build</strong></td>
+                                   <td><small>28 April 2000</small></td>
+                                   <td>Perbaikan bug fatal 'Static Allocation Overflow' saat membaca berkas di atas 500 KB.</td>
+                                   <td><span style='color: #ffcc00;'>Satria P.</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.2.0-Build</strong></td>
+                                   <td><small>15 April 2000</small></td>
+                                   <td>Sistem manajer berkas berbasis hierarki direktori root selesai diuji coba.</td>
+                                   <td><span style='color: #ffcc00;'>Agung Jaya</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.1.2-Patch</strong></td>
+                                   <td><small>30 Maret 2000</small></td>
+                                   <td>Penambahan efek gelombang suara beep tunggal saat melakukan klik menu navigasi.</td>
+                                   <td><span style='color: #ffcc00;'>Kesandra L. J.</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.1.0-Core</strong></td>
+                                   <td><small>18 Maret 2000</small></td>
+                                   <td>Dukungan penuh modem dial-up eksternal dengan kecepatan 9.6 Kbps terintegrasi.</td>
+                                   <td><span style='color: #ffcc00;'>Satria P.</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.0.5-Core</strong></td>
+                                   <td><small>05 Maret 2000</small></td>
+                                   <td>Penataan ulang font bitmap piksel khusus agar teks nyaman dibaca pada layar monokrom.</td>
+                                   <td><span style='color: #ffcc00;'>Kesandra L. J.</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v1.0.0-Release</strong></td>
+                                   <td><small>20 Februari 2000</small></td>
+                                   <td>Peluncuran kernel dasar stabil pertama WebLab Core System (WL-Core.sys) di Jayakarta.</td>
+                                   <td><span style='color: #ffcc00;'>Tim Dev</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v0.9.5-Alpha</strong></td>
+                                   <td><small>02 Februari 2000</small></td>
+                                   <td>Eksperimen awal penayangan 6 sub-menu pintasan utama pada modul layar tersemat.</td>
+                                   <td><span style='color: #ffcc00;'>Agung Jaya</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v0.8.0-Alpha</strong></td>
+                                   <td><small>25 Januari 2000</small></td>
+                                   <td>Penyelesaian kode Assembly untuk pemetaan tabel alokasi memori statis RAM.</td>
+                                   <td><span style='color: #ffcc00;'>Satria P.</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v0.5.0-Draft</strong></td>
+                                   <td><small>15 Januari 2000</small></td>
+                                   <td>Penyusunan kerangka arsitektur file system berstruktur mikrokernel logis.</td>
+                                   <td><span style='color: #ffcc00;'>Agung Jaya</span></td>
+                               </tr>
+                               <tr>
+                                   <td><strong>v0.1.0-Init</strong></td>
+                                   <td><small>02 Januari 2000</small></td>
+                                   <td>Inisialisasi repositori lokal pertama di markas Gedung Pemuda Jayakarta, Bhumiandra.</td>
+                                   <td><span style='color: #ffcc00;'>Tim Dev</span></td>
+                               </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+                <!-- SECTION: FAQ -->
+                <section id='faq' class='card'>
+
+                    <h2>Pertanyaan yang Sering Diajukan (FAQ)</h2>
+                    <div style='display: flex; flex-direction: column; gap: 20px; margin-top: 15px;'>
+                        <div>
+                            <h4 style='color: #ffff99; margin-bottom: 5px;'>Q: Apakah WebLab OS ini berbasis Linux atau Windows?</h4>
+                            <p style='font-size: 0.9rem; text-align: justify;'>A: Bukan keduanya. WebLab OS dibangun murni dari nol menggunakan bahasa Assembly dan C oleh Satria Pratama. Kernelnya, <code>WL-Core.sys</code>, dirancang khusus dengan sistem alokasi memori independen yang disesuaikan untuk kebutuhan komputasi di Republik Bhumiandra.</p>
+                        </div>
+                        <div>
+                            <h4 style='color: #ffff99; margin-bottom: 5px;'>Q: Mengapa batas memori RAM yang dideteksi hanya sebesar 16MB?</h4>
+                            <p style='font-size: 0.9rem; text-align: justify;'>A: Pada lini masa tahun 2000, efisiensi adalah segalanya. Dengan membatasi sistem berjalan optimal pada rentang 8MB hingga 16MB RAM, harga perangkat keras di Bhumiandra dapat ditekan seminimal mungkin sehingga teknologi ini dapat dijangkau oleh seluruh kalangan rakyat pemuda.</p>
+                        </div>
+                        <div>
+                            <h4 style='color: #ffff99; margin-bottom: 5px;'>Q: Bagaimana cara mengakses domain nirkabel berakhiran .wgp?</h4>
+                            <p style='font-size: 0.9rem; text-align: justify;'>A: Anda harus menghubungkan modem nirkabel perangkat Anda ke gerbang akses data lokal Jayakarta Network. WebLab Browser versi 1.5 akan otomatis mengenali dan memetakan DNS lokal untuk berselancar di dalam portal Bhumiandra.</p>
+                        </div>
+                        <div>
+                            <h4 style='color: #ffff99; margin-bottom: 5px;'>Q: Di mana saya bisa menemui tim WebLab Tek untuk berdiskusi?</h4>
+                            <p style='font-size: 0.9rem; text-align: justify;'>A: Markas operasional kami berada di Gedung Pemuda Lantai 3, Jalan Protokol No. 98, Jayakarta. Kami selalu terbuka untuk diskusi pemrograman ditemani secangkir kopi hitam hangat hangat kuku.</p>
+                        </div>
+                    </div>
+
+                </section>
+                <!-- SECTION: BUKU TAMU KOMUNITAS -->
+                <section id='guestbook' class='card'>
+                    <h2>Buku Tamu Komunitas Bhumiandra</h2>
+                    <p style='font-size: 0.9rem;'>Komentar, dukungan, dan laporan pengujian dari masyarakat Jayakarta lintas distrik:</p>
+                    <div class='guestbook-list'>
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Budi_Santoso99 <small style='color:#777;'>(Jayakarta Pusat)</small></span>
+                                <span>2 Mei 2000 - 11:16 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Maju terus anak muda! Akhirnya ada OS buatan asli Bhumiandra yang gak gampang hang."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Andra_Cyber2000 <small style='color:#777;'>(Distrik Selatan)</small></span>
+                                <span>3 Juni 2000 - 12:17 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Gokil abis, game Snake-nya Kesandra lancar jaya di komputer jadoel gw. Ditunggu update v1.5!"</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Rian_Teknisi <small style='color:#777;'>(Jayakarta Barat)</small></span>
+                                <span>4 Mei 2000 - 13:18 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Udah coba compile API-nya, rapi bener dokumentasi bikinan Satria. Gampang dimengerti."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Siti_Aminah <small style='color:#777;'>(Kota Satelit)</small></span>
+                                <span>5 Juni 2000 - 14:19 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Keren banget tampilannya! Sederhana tapi pas dilihat di HP layar kecil gak bikin sakit mata."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Dedi_Hardware <small style='color:#777;'>(Gedung Glodok Bhumi)</small></span>
+                                <span>6 Mei 2000 - 15:20 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"RAM 16MB detected langsung terbaca pas booting. Ini baru namanya optimalisasi tingkat dewa."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Eko_Programmer <small style='color:#777;'>(Kampus Jayakarta)</small></span>
+                                <span>7 Juni 2000 - 16:21 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Agung Jaya emang mantap manajemen projectnya. Rilis update-nya selalu terjadwal dengan rapi."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Gani_Kurniawan <small style='color:#777;'>(Distrik Utara)</small></span>
+                                <span>8 Mei 2000 - 17:22 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Website-nya sekarang enak banget dibuka pake hape, UI-nya rapi bener gak berantakan kayak kemarin."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Hendra_Keren <small style='color:#777;'>(Jayakarta Timur)</small></span>
+                                <span>9 Juni 2000 - 18:23 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Tolong tambahin aplikasi pemutar musik biner dong di versi berikutnya biar makin mantap!"</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Indah_Permata <small style='color:#777;'>(Pusat Pemerintahan)</small></span>
+                                <span>10 Mei 2000 - 19:24 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Bangga banget ada produk lokal Bhumiandra yang bisa bersaing sama teknologi luar negeri."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Joko_Milenium <small style='color:#777;'>(Distrik Pesisir)</small></span>
+                                <span>11 Juni 2000 - 20:25 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Pesan masuk di WebLab OS tampilannya bersih banget. Gak pusing bacanya."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Kiki_Rider <small style='color:#777;'>(Jayakarta Core)</small></span>
+                                <span>12 Mei 2000 - 21:26 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Kantornya di Gedung Pemuda deket rumah gw nih, kapan-kapan gw mampir bawa gorengan ya bang."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Laras_Ati <small style='color:#777;'>(Distrik Perbukitan)</small></span>
+                                <span>13 Juni 2000 - 10:27 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Buka browser-nya cepet banget ya walaupun pake modem dial up 9.6 Kbps. Salut!"</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Maman_Suparman <small style='color:#777;'>(Kota Lama)</small></span>
+                                <span>14 Mei 2000 - 11:28 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"WL-Core.sys stabil banget, gw siksa tes seharian gak nemu memory leak sama sekali."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Nadia_Asmara <small style='color:#777;'>(Jayakarta Selatan)</small></span>
+                                <span>15 Juni 2000 - 12:29 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Salut buat tiga pemuda hebat! Agung, Satria, Kesandra. Kalian inspirasi kami."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Oman_Tech <small style='color:#777;'>(Lembah Silikon Bhumi)</small></span>
+                                <span>16 Mei 2000 - 13:30 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Apakah nanti ada rencana buat open source-in kernel core nya ke publik Bhumiandra?"</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Putra_Petir <small style='color:#777;'>(Distrik Industri)</small></span>
+                                <span>17 Juni 2000 - 14:31 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"15-Puzzle nya bikin kecanduan woi, rekor gw sekarang 45 detik aja."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Qory_Net <small style='color:#777;'>(Warnet Jayakarta)</small></span>
+                                <span>18 Mei 2000 - 15:32 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Udah gw install di semua PC warnet gw, pelanggan pada betah nyobain WebLab OS."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Riko_Changer <small style='color:#777;'>(Pusat Data)</small></span>
+                                <span>19 Juni 2000 - 16:33 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Mantap pemetaan static memory-nya presisi bener, gak tabrakan sama driver keyboard."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Sinta_Bella <small style='color:#777;'>(Distrik Bisnis)</small></span>
+                                <span>20 Mei 2000 - 17:34 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Tampilan abu-abu garisnya ikonik banget, berasa megang alat canggih masa depan."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Taufik_Hidayat <small style='color:#777;'>(Kota Baru)</small></span>
+                                <span>21 Juni 2000 - 18:35 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Sukses terus buat WebLab Tek, ditunggu produk-produk revolusioner selanjutnya!"</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Umar_Ganteng <small style='color:#777;'>(Jayakarta Pusat)</small></span>
+                                <span>22 Mei 2000 - 19:36 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Dapet info dari todo.txt katanya source code musti dikumpulin malam ini? Wkwk semangat begadangnya!"</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Vina_Pandu <small style='color:#777;'>(Distrik Utara)</small></span>
+                                <span>23 Juni 2000 - 20:37 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Membantu banget referensi API-nya buat tugas akhir kuliah komputer gw di Jayakarta."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Wawan_Solder <small style='color:#777;'>(Bengkel Komputer)</small></span>
+                                <span>24 Mei 2000 - 21:38 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Akhirnya HP rakitan gw nemu OS yang cocok dan enteng banget."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Xavier_Nugraha <small style='color:#777;'>(Kota Satelit)</small></span>
+                                <span>25 Juni 2000 - 10:39 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Salam dari komunitas pecinta komputer antik, WebLab OS bener-bener penyelamat hardware tua."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Yayan_Ruhiat <small style='color:#777;'>(Distrik Barat)</small></span>
+                                <span>26 Mei 2000 - 11:40 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Gak sabar nunggu versi stable 1.4 resmi dirilis ke pasar domestik."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Zaki_Mulia <small style='color:#777;'>(Jayakarta Core)</small></span>
+                                <span>27 Juni 2000 - 12:41 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Situsnya ringan banget dibuka pas sinyal lagi megap-megap. Desain responsive-nya top!"</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Amir_Sanusi <small style='color:#777;'>(Distrik Pesisir)</small></span>
+                                <span>28 Mei 2000 - 13:42 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Browsernya aman dari pop-up iklan ga jelas. Bersih murni fungsional."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Bambang_Code <small style='color:#777;'>(Kampus Merdeka Bhumi)</small></span>
+                                <span>1 Juni 2000 - 14:43 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Satria Pratama emang beneran dewa Assembly, salam sungkem dari junior bang."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Citra_Kirana <small style='color:#777;'>(Jayakarta Timur)</small></span>
+                                <span>2 Mei 2000 - 15:44 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Layout menu Home Control Center bener-bener ramah buat pengguna awam."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Doni_Pradana <small style='color:#777;'>(Distrik Selatan)</small></span>
+                                <span>3 Juni 2000 - 16:45 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Bar loading pas booting bikin nostalgia masa-masa awal megang komputer komputer jaman dulu."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Eli_Suryani <small style='color:#777;'>(Kota Lama)</small></span>
+                                <span>4 Mei 2000 - 17:46 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Pusat Inovasi Perangkat Lunak Jayakarta emang pantes disandang WebLab Tek."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Fahmi_Zul <small style='color:#777;'>(Distrik Bisnis)</small></span>
+                                <span>5 Juni 2000 - 18:47 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Gak sia-sia nungguin update dari bulan lalu, hasilnya memuaskan banget."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Gilang_Ramadhan <small style='color:#777;'>(Jayakarta Pusat)</small></span>
+                                <span>6 Mei 2000 - 19:48 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Snake Vintage nya seru banget dimainin pas lagi nunggu kereta di stasiun."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Hani_Mulyani <small style='color:#777;'>(Distrik Perbukitan)</small></span>
+                                <span>7 Juni 2000 - 20:49 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Sistem manajemen file direktori root-nya gampang dipahami, ga bikin bingung."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Irfan_Hakim <small style='color:#777;'>(Kota Baru)</small></span>
+                                <span>8 Mei 2000 - 21:50 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Semoga WebLab Tek bisa dapet pendanaan gede biar makin cepet berkembang skala nasional."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Jajang_Mulyana <small style='color:#777;'>(Distrik Barat)</small></span>
+                                <span>9 Juni 2000 - 10:51 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Font pixel bitmap-nya rapi bener pas dirender, ga pecah di layar resolusi rendah."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Kurnia_Sandi <small style='color:#777;'>(Jayakarta Selatan)</small></span>
+                                <span>10 Mei 2000 - 11:52 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Tetap pertahankan konsep indie dan tanpa bloatware ya bang! Jangan kegoda iklan."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Lukman_Hakim <small style='color:#777;'>(Distrik Utara)</small></span>
+                                <span>11 Juni 2000 - 12:53 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Website resmi ini bener-bener cerminan profesionalisme developer Bhumiandra."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Meita_Sari <small style='color:#777;'>(Jayakarta Core)</small></span>
+                                <span>12 Mei 2000 - 13:54 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Maju terus Agung, Satria, dan Kesandra! Kami seluruh pemuda Jayakarta mendukungmu."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                        <div class='guestbook-item'>
+                            <div class='guestbook-meta'>
+                                <span class='guestbook-user'>@Nugroho_Tech <small style='color:#777;'>(Distrik Timur)</small></span>
+                                <span>13 Juni 2000 - 14:15 WIB</span>
+                            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                            <p style='font-size: 0.85rem; color: #d0d0df;'>"Server status online terus, mantap infrastruktur jaringan internet lokalnya."</p>
+                        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                    </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+                </section>
+            </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+    </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+    
+    <footer>
+        <div class='container'>
+            <p style='margin-bottom: 8px;'>&copy; 2000 <strong>WebLab Tek Co.</strong> - Jayakarta, Republik Bhumiandra. Hak Cipta Dilindungi.</p>
+            <p style='font-size: 0.75rem; color: #777;'>
+                Dikembangkan secara mandiri oleh Agung Jaya, Satria Pratama, & Kesandra Lino Jati.<br>
+                Situs ini dirancang menggunakan standar HTML murni yang dioptimalkan agar responsif sempurna diakses via PC, Laptop, maupun Layar Genggam Mobile.
+            </p>
+        </div>
+    <!-- SYSTEM COMPLIANCE LAYER: MEMORY OPTIMIZED STRUCTURE FOR BHUMIANDRA SYSTEMS IN YEAR 2000 -->
+    </footer>
+</body>
+</html>
