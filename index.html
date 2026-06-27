@@ -1,0 +1,1096 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebLab Tek — Company Profile</title>
+  <meta name="description" content="Profil resmi WebLab Tek, perusahaan teknologi yang beroperasi dari Casnara dengan pusat pengembangan di Montague dan Caneton." />
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: #ffffff;
+      --text: #102033;
+      --muted: #5b6b7f;
+      --line: rgba(16, 32, 51, 0.10);
+      --brand: #173d68;
+      --brand-2: #2d7ff9;
+      --accent: #00a3a3;
+      --shadow: 0 18px 40px rgba(16, 32, 51, 0.10);
+      --shadow-soft: 0 10px 22px rgba(16, 32, 51, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max: 1180px;
+    }* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(45,127,249,0.16), transparent 32%),
+    radial-gradient(circle at top right, rgba(0,163,163,0.10), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, #eef3f9 42%, #e9eef5 100%);
+  min-height: 100vh;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button, input { font: inherit; }
+
+.container {
+  width: min(calc(100% - 32px), var(--max));
+  margin: 0 auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 16px;
+  background: #fff;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 999px;
+  z-index: 1000;
+}
+.skip-link:focus { left: 16px; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(245, 248, 252, 0.78);
+  border-bottom: 1px solid rgba(16, 32, 51, 0.08);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+  box-shadow: 0 12px 24px rgba(45,127,249,0.28);
+  position: relative;
+  flex: none;
+}
+.brand-mark::before,
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.68);
+}
+.brand-mark::after {
+  inset: 16px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.16);
+}
+
+.brand-copy { min-width: 0; }
+.brand-name {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+.brand-sub {
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #27415e;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 9px 12px;
+  border-radius: 999px;
+  transition: 0.2s ease;
+}
+.nav-links a:hover {
+  background: rgba(45,127,249,0.10);
+  color: var(--brand);
+}
+
+.menu-btn {
+  display: none;
+  border: 0;
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-soft);
+  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.menu-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--brand);
+  position: relative;
+  border-radius: 2px;
+}
+.menu-btn span::before,
+.menu-btn span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--brand);
+  border-radius: 2px;
+}
+.menu-btn span::before { top: -6px; }
+.menu-btn span::after { top: 6px; }
+
+.mobile-panel {
+  display: none;
+  padding: 0 0 14px;
+}
+.mobile-panel.open { display: block; }
+.mobile-panel .mobile-links {
+  display: grid;
+  gap: 8px;
+}
+.mobile-panel a {
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-soft);
+  border-radius: 16px;
+  padding: 12px 14px;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.hero {
+  padding: 34px 0 20px;
+}
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,0.24), transparent 24%),
+    linear-gradient(135deg, #0f2742 0%, #173d68 44%, #1f5d98 100%);
+  color: #fff;
+  box-shadow: 0 28px 60px rgba(9, 26, 44, 0.26);
+  padding: 36px;
+  min-height: 420px;
+  display: grid;
+  align-items: end;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(290px, 0.9fr);
+  gap: 24px;
+  align-items: end;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 14px;
+}
+.eyebrow::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #7ed7ff;
+  box-shadow: 0 0 0 6px rgba(126,215,255,0.12);
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 4.6rem);
+  line-height: 0.97;
+  letter-spacing: -0.05em;
+  margin: 0;
+  max-width: 11ch;
+}
+
+.hero p {
+  font-size: 1.02rem;
+  color: rgba(255,255,255,0.84);
+  max-width: 62ch;
+  margin: 18px 0 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #ffffff 0%, #edf5ff 100%);
+  color: var(--brand);
+  box-shadow: 0 14px 26px rgba(0,0,0,0.16);
+}
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-color: rgba(255,255,255,0.22);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.13); }
+
+.hero-side {
+  display: grid;
+  gap: 14px;
+}
+
+.info-panel {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 22px;
+  padding: 18px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 14px;
+  min-height: 92px;
+}
+.stat .label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.64);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+.stat .value {
+  font-size: 1.14rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.stat .small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255,255,255,0.78);
+  font-size: 0.88rem;
+}
+
+.section {
+  padding: 16px 0 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0 0 18px;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  letter-spacing: -0.03em;
+}
+.section-copy {
+  margin: 6px 0 0;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.card.pad { padding: 22px; }
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 1.06rem;
+}
+.card p { margin: 0; color: var(--muted); }
+
+.lead-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.lead-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.62);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+}
+.lead-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(45,127,249,0.16), rgba(0,163,163,0.16));
+  color: var(--brand);
+  font-weight: 900;
+  flex: none;
+}
+.lead-item strong { display: block; margin-bottom: 4px; }
+.lead-item span { color: var(--muted); font-size: 0.95rem; }
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  color: var(--brand);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  flex: none;
+}
+
+.location-card {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.90), rgba(255,255,255,0.72)),
+    radial-gradient(circle at top left, rgba(45,127,249,0.12), transparent 34%);
+}
+.location-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 14px;
+}
+.location-name {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.location-meta {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+.location-tag {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(45,127,249,0.10);
+  color: var(--brand);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 18px;
+  display: grid;
+  gap: 16px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--brand-2), rgba(0,163,163,0.4));
+}
+.timeline-item {
+  position: relative;
+  padding: 14px 16px 14px 18px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(16, 32, 51, 0.08);
+  border-radius: 18px;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 18px;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #fff;
+  border: 3px solid var(--brand-2);
+  box-shadow: 0 0 0 6px rgba(45,127,249,0.08);
+}
+.timeline-item .year {
+  font-weight: 900;
+  color: var(--brand);
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.timeline-item .desc { color: var(--muted); margin: 0; }
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.product {
+  padding: 18px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.90), rgba(255,255,255,0.68));
+  border: 1px solid rgba(16,32,51,0.08);
+  box-shadow: var(--shadow-soft);
+}
+.product-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, rgba(23,61,104,0.14), rgba(0,163,163,0.14));
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--brand);
+}
+.product h3 { margin-bottom: 8px; }
+.product p { font-size: 0.95rem; }
+
+.contact-strip {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 16px;
+}
+
+.contact-card {
+  padding: 22px;
+  background: linear-gradient(135deg, #173d68 0%, #245d96 100%);
+  color: #fff;
+  border-radius: 24px;
+  box-shadow: 0 24px 48px rgba(9, 26, 44, 0.20);
+}
+.contact-card p { color: rgba(255,255,255,0.82); }
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 10px;
+}
+.contact-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 0.95rem;
+}
+.contact-list strong { font-weight: 800; }
+
+.form-card {
+  padding: 22px;
+}
+.form-group { display: grid; gap: 8px; margin-bottom: 14px; }
+.form-group label { font-size: 0.88rem; font-weight: 800; color: #33475f; }
+.field {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(16,32,51,0.12);
+  background: rgba(255,255,255,0.9);
+  padding: 0 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+textarea.field {
+  min-height: 120px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+.field:focus {
+  border-color: rgba(45,127,249,0.42);
+  box-shadow: 0 0 0 4px rgba(45,127,249,0.10);
+}
+
+.footer {
+  margin-top: 28px;
+  padding: 24px 0 36px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.footer-inner {
+  border-top: 1px solid rgba(16,32,51,0.08);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fade-up {
+  animation: fadeUp 0.7s ease both;
+}
+.delay-1 { animation-delay: 0.08s; }
+.delay-2 { animation-delay: 0.16s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.32s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 980px) {
+  .hero-grid,
+  .contact-strip,
+  .grid-3,
+  .products {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero-card { min-height: auto; }
+}
+
+@media (max-width: 780px) {
+  .nav-links { display: none; }
+  .menu-btn { display: inline-flex; }
+  .hero { padding-top: 20px; }
+  .hero-card { padding: 22px; border-radius: 24px; }
+  .hero-grid,
+  .grid-2,
+  .grid-3,
+  .products,
+  .contact-strip {
+    grid-template-columns: 1fr;
+  }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .section-head { align-items: start; }
+  .brand-sub { white-space: normal; }
+}
+
+@media (max-width: 540px) {
+  .container { width: min(calc(100% - 22px), var(--max)); }
+  .nav-wrap { padding: 12px 0; }
+  .hero { padding-bottom: 8px; }
+  .hero-card { padding: 18px; }
+  .hero h1 { max-width: 12ch; }
+  .hero p { font-size: 0.96rem; }
+  .btn { width: 100%; }
+  .hero-actions { flex-direction: column; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .lead-item { flex-direction: column; }
+  .lead-badge { width: 38px; height: 38px; }
+  .contact-list li { flex-direction: column; }
+  .footer-inner { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>  <header class="topbar">
+    <div class="container">
+      <div class="nav-wrap">
+        <a href="#beranda" class="brand" aria-label="WebLab Tek beranda">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-copy">
+            <div class="brand-name">WebLab Tek</div>
+            <div class="brand-sub">Official Company Profile • Casnara</div>
+          </div>
+        </a><nav class="nav-links" aria-label="Navigasi utama">
+      <a href="#tentang">Tentang</a>
+      <a href="#portofolio">Platform</a>
+      <a href="#lokasi">Lokasi</a>
+      <a href="#pendiri">Pendiri</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="mobilePanel">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <div class="mobile-links">
+      <a href="#tentang">Tentang</a>
+      <a href="#portofolio">Platform</a>
+      <a href="#lokasi">Lokasi</a>
+      <a href="#pendiri">Pendiri</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+  </div>
+</div>
+
+  </header>  <main id="main">
+    <section class="hero" id="beranda">
+      <div class="container">
+        <div class="hero-card fade-up">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">Technology • Networks • Software</div>
+              <h1>Infrastruktur digital untuk Casnara.</h1>
+              <p>
+                WebLab Tek adalah perusahaan teknologi yang mengembangkan platform sistem, jaringan komunikasi,
+                layanan digital, dan perangkat lunak terintegrasi untuk pengguna individu, bisnis, dan ekosistem publik.
+                Operasi utama berpusat di Montague dan Caneton.
+              </p><div class="hero-actions">
+            <a class="btn btn-primary" href="#tentang">Pelajari Perusahaan</a>
+            <a class="btn btn-secondary" href="#kontak">Hubungi Tim Kami</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="info-panel">
+            <div style="font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.78rem; color:rgba(255,255,255,.74); margin-bottom:12px;">Ringkasan Cepat</div>
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="label">Markas</div>
+                <div class="value">Montague</div>
+                <span class="small">Pusat strategi dan pengembangan produk.</span>
+              </div>
+              <div class="stat">
+                <div class="label">Operasi</div>
+                <div class="value">Caneton</div>
+                <span class="small">Jaringan, data center, dan layanan inti.</span>
+              </div>
+              <div class="stat">
+                <div class="label">Cakupan</div>
+                <div class="value">Nasional</div>
+                <span class="small">Dirancang untuk ekosistem Casnara.</span>
+              </div>
+              <div class="stat">
+                <div class="label">Arah</div>
+                <div class="value">Terpadu</div>
+                <span class="small">Sistem, jaringan, dan layanan dalam satu identitas.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tentang">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div>
+        <h2 class="section-title">Tentang WebLab Tek</h2>
+        <p class="section-copy">
+          WebLab Tek adalah perusahaan teknologi yang membangun fondasi digital untuk pengalaman mobile, komunikasi,
+          dan layanan berbasis jaringan. Fokus utama perusahaan adalah menghadirkan platform yang stabil,
+          profesional, dan konsisten di seluruh ekosistemnya.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card pad fade-up delay-1">
+        <h3>Fokus bisnis</h3>
+        <p>
+          Perusahaan mengembangkan sistem operasi, browser, layanan asisten, sinkronisasi data, infrastruktur cloud,
+          dan dukungan jaringan yang saling terhubung. Setiap produk dirancang agar terasa satu keluarga,
+          bukan kumpulan layanan terpisah.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Sistem operasi</span>
+          <span class="pill">Jaringan & telekomunikasi</span>
+          <span class="pill">Layanan cloud</span>
+          <span class="pill">Platform developer</span>
+        </div>
+      </div>
+
+      <div class="card pad fade-up delay-2">
+        <h3>Identitas perusahaan</h3>
+        <p>
+          WebLab Tek beroperasi sepenuhnya dari Casnara. Montague menjadi pusat pengembangan dan arahan produk,
+          sementara Caneton menangani jaringan utama, server, dan operasi teknis. Satu catatan sejarah tetap diakui:
+          perusahaan pernah berakar di Bhumiandra sebelum relokasi penuh ke Casnara.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Casnara-first</span>
+          <span class="pill">Montague</span>
+          <span class="pill">Caneton</span>
+          <span class="pill">Sejarah origin di Bhumiandra</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="portofolio">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div>
+        <h2 class="section-title">Platform utama</h2>
+        <p class="section-copy">
+          Portofolio WebLab Tek dibangun sebagai ekosistem terpadu. Setiap platform mendukung identitas perusahaan,
+          layanan pengguna, dan infrastruktur inti Casnara.
+        </p>
+      </div>
+    </div>
+
+    <div class="products">
+      <article class="product fade-up delay-1">
+        <div class="product-icon">OS</div>
+        <h3>WebLab Mobile OS</h3>
+        <p>Sistem operasi mobile andalan dengan antarmuka retro yang tetap profesional, ringan, dan mudah digunakan.</p>
+      </article>
+      <article class="product fade-up delay-2">
+        <div class="product-icon">WB</div>
+        <h3>WebBros Assistant</h3>
+        <p>Asisten bawaan untuk pencarian, panduan sistem, keyword command, dan dukungan pengguna di dalam perangkat.</p>
+      </article>
+      <article class="product fade-up delay-3">
+        <div class="product-icon">NW</div>
+        <h3>WebLab Network</h3>
+        <p>Identitas jaringan dan telekomunikasi yang menyatukan status bar, layanan sinyal, dan koneksi lintas perangkat.</p>
+      </article>
+      <article class="product fade-up delay-4">
+        <div class="product-icon">CL</div>
+        <h3>WebLab Cloud</h3>
+        <p>Sinkronisasi data, penyimpanan, dan layanan backend yang menjaga konsistensi akun dan preferensi pengguna.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="lokasi">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div>
+        <h2 class="section-title">Pusat operasi di Casnara</h2>
+        <p class="section-copy">
+          Struktur perusahaan dibagi secara strategis antara dua kota utama agar pengembangan, jaringan, dan layanan dapat berjalan optimal.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <article class="card pad location-card fade-up delay-1">
+        <div>
+          <div class="location-top">
+            <div>
+              <h3 class="location-name">Montague</h3>
+              <div class="location-meta">Pusat pengembangan produk, desain, dan strategi perusahaan.</div>
+            </div>
+            <div class="location-tag">Headquarters</div>
+          </div>
+          <p>
+            Montague menjadi rumah bagi tim inti yang mengarahkan visi produk, pengalaman pengguna, arsitektur software,
+            dan penyusunan roadmap teknologi WebLab Tek.
+          </p>
+        </div>
+      </article>
+
+      <article class="card pad location-card fade-up delay-2">
+        <div>
+          <div class="location-top">
+            <div>
+              <h3 class="location-name">Caneton</h3>
+              <div class="location-meta">Pusat jaringan, data center, dan operasi teknis skala besar.</div>
+            </div>
+            <div class="location-tag">Operations Hub</div>
+          </div>
+          <p>
+            Caneton menangani backbone jaringan, layanan komunikasi, server perusahaan, sinkronisasi cloud, dan pemeliharaan infrastruktur.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pendiri">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div>
+        <h2 class="section-title">Pendiri perusahaan</h2>
+        <p class="section-copy">
+          WebLab Tek dipimpin oleh tiga pendiri yang menjadi identitas utama perusahaan dan arah pengembangannya.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card pad fade-up delay-1">
+        <div class="lead-item" style="background:transparent; border:0; padding:0;">
+          <div class="lead-badge">AJ</div>
+          <div>
+            <strong>Agung Jaya</strong>
+            <span>Memimpin arah visi perusahaan, pengembangan strategis, dan ekspansi ekosistem Casnara.</span>
+          </div>
+        </div>
+      </div>
+      <div class="card pad fade-up delay-2">
+        <div class="lead-item" style="background:transparent; border:0; padding:0;">
+          <div class="lead-badge">SP</div>
+          <div>
+            <strong>Satria Pratama</strong>
+            <span>Menangani struktur teknis, inovasi platform, dan arsitektur inti lintas layanan.</span>
+          </div>
+        </div>
+      </div>
+      <div class="card pad fade-up delay-3">
+        <div class="lead-item" style="background:transparent; border:0; padding:0;">
+          <div class="lead-badge">KL</div>
+          <div>
+            <strong>Kesandra Lino Jati</strong>
+            <span>Berfokus pada pengalaman pengguna, identitas visual, dan konsistensi branding perusahaan.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sejarah">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div>
+        <h2 class="section-title">Perjalanan perusahaan</h2>
+        <p class="section-copy">
+          Garis besar perjalanan WebLab Tek menunjukkan transformasi dari akar awal hingga menjadi perusahaan Casnara yang terintegrasi.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item fade-up delay-1">
+        <div class="year">Tahap awal</div>
+        <p class="desc">WebLab Tek memulai pengembangan awal di Bhumiandra, membangun fondasi konsep, prototipe, dan identitas teknologi pertamanya.</p>
+      </div>
+      <div class="timeline-item fade-up delay-2">
+        <div class="year">Relokasi penuh</div>
+        <p class="desc">Seluruh perusahaan, infrastruktur, dan proyek dipindahkan ke Casnara sebagai langkah strategis untuk konsolidasi operasi.</p>
+      </div>
+      <div class="timeline-item fade-up delay-3">
+        <div class="year">Pusat baru</div>
+        <p class="desc">Montague dan Caneton ditetapkan sebagai dua pusat utama pengembangan, jaringan, dan pertumbuhan ekosistem perusahaan.</p>
+      </div>
+      <div class="timeline-item fade-up delay-4">
+        <div class="year">Era Casnara</div>
+        <p class="desc">WebLab Tek memasuki fase identitas baru: modern, lokal, stabil, dan terhubung penuh dengan infrastruktur Casnara.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="nilai">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div>
+        <h2 class="section-title">Prinsip kerja</h2>
+        <p class="section-copy">Empat prinsip ini menjadi dasar cara WebLab Tek membangun seluruh produknya.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card pad fade-up delay-1">
+        <h3>Terpadu</h3>
+        <p>Setiap produk dirancang agar saling menyambung, dari tampilan OS sampai jaringan dan cloud backend.</p>
+      </div>
+      <div class="card pad fade-up delay-2">
+        <h3>Stabil</h3>
+        <p>Arsitektur sistem difokuskan pada performa yang konsisten, ringan, dan mudah dirawat di berbagai perangkat.</p>
+      </div>
+      <div class="card pad fade-up delay-3">
+        <h3>Profesional</h3>
+        <p>Branding, komunikasi, dan pengalaman pengguna disusun agar terasa kredibel sebagai perusahaan teknologi resmi.</p>
+      </div>
+      <div class="card pad fade-up delay-4">
+        <h3>Berorientasi masa depan</h3>
+        <p>WebLab Tek membangun pondasi yang siap tumbuh bersama ekosistem Casnara dan kebutuhan digital berikutnya.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kontak">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div>
+        <h2 class="section-title">Kontak korporat</h2>
+        <p class="section-copy">
+          Gunakan informasi ini sebagai format profil resmi perusahaan. Layout dibuat agar tetap enak dibaca di HP maupun PC.
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-strip">
+      <div class="contact-card fade-up delay-1">
+        <h3 style="font-size:1.25rem; margin:0 0 8px;">WebLab Tek Corporation</h3>
+        <p style="margin:0;">Casnara Headquarters & Technology Operations</p>
+        <ul class="contact-list">
+          <li><strong>Kantor Pusat</strong><span>Montague, Casnara</span></li>
+          <li><strong>Pusat Operasi</strong><span>Caneton, Casnara</span></li>
+          <li><strong>Bidang</strong><span>Software • Network • Cloud • OS</span></li>
+          <li><strong>Status</strong><span>Active / Official Profile</span></li>
+        </ul>
+      </div>
+
+      <div class="card form-card fade-up delay-2">
+        <h3>Form kontak singkat</h3>
+        <p style="margin-bottom:16px;">Bagian ini dapat dipakai untuk tampilan profil perusahaan atau integrasi formulir di versi berikutnya.</p>
+        <div class="form-group">
+          <label for="name">Nama</label>
+          <input id="name" class="field" type="text" placeholder="Nama Anda" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" class="field" type="email" placeholder="nama@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="msg">Pesan</label>
+          <textarea id="msg" class="field" placeholder="Tulis pesan atau keperluan Anda di sini..."></textarea>
+        </div>
+        <button class="btn btn-primary" type="button" style="width:100%;">Kirim Pesan</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <strong style="color:var(--text);">WebLab Tek</strong><br />
+          Company profile resmi • Casnara • Montague & Caneton
+        </div>
+        <div>
+          Seluruh hak atas identitas korporat, platform, dan infrastruktur dimiliki oleh WebLab Tek.
+        </div>
+      </div>
+    </div>
+  </footer>  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = mobilePanel.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobilePanel?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobilePanel.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      const isInsideNav = e.target.closest('.topbar');
+      if (!isInsideNav && mobilePanel.classList.contains('open')) {
+        mobilePanel.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script></body>
+</html>
